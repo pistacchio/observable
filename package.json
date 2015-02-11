@@ -1,0 +1,17 @@
+{
+  "name": "observable",
+  "version": "0.0.1",
+  "description": "A basic observable library",
+  "main": "observable.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "qunit": "^0.7.5"
+  },
+  "scripts": {
+    "test": "mocha -C"
+  }
+}
