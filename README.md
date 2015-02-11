@@ -6,7 +6,7 @@ A javascript library with CommonJs support for simple publishing / subscribing o
 
 ``` javascript
 var observable = require('observable'),
-    obj.observable(1),
+    obj = observable(1),
     id;
 
 console.log(obj());
