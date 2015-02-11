@@ -43,7 +43,7 @@ function observable (_value) {
     fn.trigger = function (event) {
         for (var uniqueId in subscriptions) {
             for (var ii = 0; ii < subscriptions[uniqueId].length; ii += 1) {
-                if (subscriptions[uniqueId][ii].event === event) {
+                if (subscriptions[uniqueId][ii].event === event || subscriptions[uniqueId][ii].event === '*') {
                     subscriptions[uniqueId][ii].fn.apply(fn, [event].concat(Array.prototype.slice.call(arguments, 1)));
                 }
             }

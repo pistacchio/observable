@@ -85,6 +85,27 @@ describe    ('Observable', function () {
         obs.trigger("myevent2", 1);
     });
 
+    it('should subscribe to all events with "*"', function (done) {
+        var obs           = observable(),
+            myevent1Check = false,
+            myevent2Check = false;
+
+        obs.sub("*", function (evt, val) {
+            if (evt === 'myevent1') {
+                myevent1Check = true;
+                assert.equal(val, 1);
+            }
+            if (evt === 'myevent2') {
+                myevent2Check = true;
+                assert.equal(val, 2);
+            }
+            if (myevent1Check && myevent2Check) done();
+        });
+
+        obs.trigger("myevent1", 1);
+        obs.trigger("myevent2", 2);
+    });
+
     it('should be able to unsubscribe', function (done) {
         var obs  = observable(),
             id;

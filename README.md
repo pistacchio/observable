@@ -28,6 +28,15 @@ obj.sub('myevent', function(evt, val1, val2) {
 });
 obj.trigger('myevent', 4, 5);
 
+obj.sub('*', function(evt, val) {
+    console.log(evt);
+    // myevent1 [first call]
+    // myevent2 [second call]
+});
+obj.trigger('myevent1', 1);
+obj.trigger('myevent2', 2);
+
+
 id = obj.sub('myevent2', function(evt, val) {
     console.log(val);
     // Never reached
